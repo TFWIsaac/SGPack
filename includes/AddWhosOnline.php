@@ -1,7 +1,5 @@
 <?php
 
-namespace SgPack;
-
 class AddWhosOnline
 {
     function __construct()
@@ -15,17 +13,17 @@ class AddWhosOnline
     }
 
     // New Personal Tabs
-    function PersonalUrls(&$personal_urls, &$title)
+    static function PersonalUrls(&$personal_urls, &$title)
     {
-        $sp = Title::makeTitle(NS_SPECIAL, 'WhosOnline');    // title of the whosonline specialpage
+        $sp = \Title::makeTitle(NS_SPECIAL, 'WhosOnline');    // title of the whosonline specialpage
         if ($title->mNamespace != NS_SPECIAL or SpecialPage::getTitleFor('WhosOnline', false)->mTextform != $title->mTextform) {    // be sure we are not on the specialpage
-            $a['online'] = array('text' => wfMessage('addwhosonline-pmenu')->text(), 'href' => $sp->getLocalURL());
+            $a['online'] = array('text' => wfMessage('addwhosonline-pmenu')->parse(), 'href' => $sp->getLocalURL());
             array_splice($personal_urls, -1, 0, $a);   // place new item(s) on second last position
         }
         return true;
     }
 
-    function logOut(&$user)
+    static function logOut(&$user)
     {
         global $wgDBname;
 

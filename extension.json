@@ -8,6 +8,15 @@
   "type": "validextensionclass",
   "manifest_version": 1,
   "AutoloadClasses": {
-    "SgPack": "includes/SgPack.php"
+    "AddWhosOnline": "includes/AddWhosOnline.php"
+  },
+  "Hooks": {
+    "UserLogout" : "AddWhosOnline::logOut",
+    "PersonalUrls" : "AddWhosOnline::PersonalUrls"
+  },
+  "MessagesDirs": {
+    "SgPack": [
+      "i18n"
+    ]
   }
 }

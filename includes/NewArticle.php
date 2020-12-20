@@ -1,7 +1,5 @@
 <?php
 
-namespace SgPack;
-
 class NewArticle
 {
     function __construct()
@@ -26,7 +24,7 @@ class NewArticle
         return $text;
     }
 
-    function NewArticle($seite)
+    static function NewArticle($seite)
     {
         global $wgOut, $wgParser;
 
@@ -60,7 +58,7 @@ class NewArticle
                             $artikel->getContent();
                             if ($artikel->mContentLoaded) {
                                 $html .= Xml::element('button', array(
-                                    'onclick' => "mw.sgpack.insert('" . sgpEncode('+' . $this->FilterPage($artikel->fetchContent()) . '+') . "');",
+                                    'onclick' => "mw.sgpack.insert('" . sgpEncode('+' . self::FilterPage($artikel->fetchContent()) . '+') . "');",
                                     'id' => 'NewArticleButton' . $idNr,
                                     'type' => 'button'),
                                     $zeile[1]);
@@ -88,7 +86,7 @@ class NewArticle
                                 $artikel->getContent();
                                 if ($artikel->mContentLoaded) {
                                     $html .= Xml::element('option', array(
-                                        'value' => sgpEncode('+' . $this->FilterPage($artikel->fetchContent()) . '+')),
+                                        'value' => sgpEncode('+' . self::FilterPage($artikel->fetchContent()) . '+')),
                                         $zeile[1]);
                                 }
                                 unset($artikel);

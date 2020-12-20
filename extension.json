@@ -8,11 +8,13 @@
   "type": "validextensionclass",
   "manifest_version": 1,
   "AutoloadClasses": {
-    "AddWhosOnline": "includes/AddWhosOnline.php"
+    "AddWhosOnline": "includes/AddWhosOnline.php",
+    "NewArticle": "includes/NewArticle.php"
   },
   "Hooks": {
-    "UserLogout" : "AddWhosOnline::logOut",
-    "PersonalUrls" : "AddWhosOnline::PersonalUrls"
+    "UserLogout": "AddWhosOnline::logOut",
+    "PersonalUrls": "AddWhosOnline::PersonalUrls",
+    "AlternateEdit": "NewArticle::NewArticle"
   },
   "MessagesDirs": {
     "SgPack": [

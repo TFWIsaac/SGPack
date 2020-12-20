@@ -1,0 +1,13 @@
+{
+  "name": "SGPack",
+  "author": "Rene Raule, Hammond",
+  "url": "http://www.stargate-wiki.de/wiki/Benutzer:Rene/SGPack",
+  "description": "This extension is an example and performs no discernible function",
+  "version": "1.5",
+  "license-name": "GPL-2.0-or-later",
+  "type": "validextensionclass",
+  "manifest_version": 1,
+  "AutoloadClasses": {
+    "SgPack": "includes/SgPack.php"
+  }
+}
